@@ -1,11 +1,15 @@
 const mongoose = require("mongoose");
-
+// connection with mongodb database using
 mongoose.connect("mongodb://localhost:27017/mongoose").then(()=>{
     console.log("connection successfull");
 }).catch((err)=>{
     console.log(err);
 });
 
+
+// here we defined the structure of table
+//or
+// created table structure or schema 
 const employeeSchema = new mongoose.Schema({
     id : Number,
     name : String,
@@ -16,8 +20,12 @@ const employeeSchema = new mongoose.Schema({
     active : Boolean
 });
 
+
+// created a model to insert values in schema which we creted using queries
 const Employee = new mongoose.model("Employee",employeeSchema);
 
+
+// below given function is created for to add values one by one or insert mutiple at a same time
 const createDocument = async()=>{
     try{
         const employee_one = new Employee({
@@ -76,6 +84,8 @@ const createDocument = async()=>{
 
 // createDocument();
 
+
+// below given function is created for get the added values to display or reuse from the model/table
 const getDocument = async ()=>{
     const get = await Employee.find();
     console.log(`list of all documents in employee model ${get}`);
