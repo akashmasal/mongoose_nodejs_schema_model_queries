@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-// connection with mongodb database using
+// connection with mongodb database using mongoose package
 mongoose.connect("mongodb://localhost:27017/mongoose").then(()=>{
     console.log("connection successfull");
 }).catch((err)=>{
